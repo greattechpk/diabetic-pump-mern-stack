@@ -8,14 +8,14 @@ import axios from 'axios'
  * Rename this class to reflect the component being created
  *
  */
-export default class HelloWorld extends Component {
+export default class Settings extends Component {
 
     /* Step 3
     * Create a state for the component to store view data
     *
     */
     state = {
-        data: ''
+        data: {}
     }
 
     /* Step 4
@@ -26,9 +26,9 @@ export default class HelloWorld extends Component {
     *   -REMINDER remember `setState` it is an async function
     */
     componentDidMount() {
-        axios.get('/api/food')
+        axios.get('/api/settings')
             .then((res) => {
-                this.setState({data: res.data})
+                this.setState({ data: res.data[0] })
                 console.log(this.state.data)
             })
     }
@@ -43,7 +43,11 @@ export default class HelloWorld extends Component {
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
-                <h1>{this.state.data}</h1>
+                <h1>Global Settings</h1>
+                <div className='settings-info'>
+                    <div className='settings-entry'><span className='settings-label'>Carb Ratio:</span><span className='settings-data'>{this.state.data.carbRatio}</span></div>
+                </div>
+
             </div>
         )
     }

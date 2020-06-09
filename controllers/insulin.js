@@ -1,7 +1,5 @@
 const express = require('express')
 const insulinModel = require('../models/insulin.js')
-const foodModel = require('../models/food.js')
-const globalModel = require('../models/global.js')
 const insulinRouter = express.Router()
 
 // GET ALL Route
@@ -32,7 +30,7 @@ insulinRouter.get('/admin', (req, res) => {
 insulinRouter.get('/:id', (req, res) => {
     insulinModel.getOneInsulin(req.params.id)
         .then((singleInsulin) => {
-            res.render('insulin/singleInsulin', {singleInsulin})
+            res.json(singleInsulin)
         })
         .catch(err => {
             console.log(err)
@@ -56,7 +54,7 @@ insulinRouter.post('/', (req, res) => {
 insulinRouter.put('/:id', (req, res) => {
     insulinModel.updateInsulin(req.params.id, req.body)
         .then(() => {
-            res.redirect(`/`)
+            res.json(`ok`)
         })
         .catch(err => {
             console.log(err)
@@ -68,7 +66,7 @@ insulinRouter.put('/:id', (req, res) => {
 insulinRouter.delete('/:id', (req, res) =>{
     insulinModel.deleteInsulin(req.params.id)
         .then(() => {
-            res.redirect('/admin')
+            res.jso('/ok')
         })
         .catch(err => {
             console.log(err)

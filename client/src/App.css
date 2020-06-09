@@ -31,3 +31,198 @@
     transform: rotate(360deg);
   }
 }
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body{
+    padding-top:80px;
+}
+
+
+/* button style src = https://css-tricks.com/overriding-default-button-styles/ */
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+/* layout */
+.navbar{
+    background-color: #051B2A;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    top:0;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 30px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+
+.navlink{
+    height:60px;
+    text-decoration: none;
+    color: #D0E7FF;
+    padding:0 20px;
+    background-color: #0C3B5B;
+    display: flex;
+    align-items: center;
+}
+
+.navlink:hover{
+    color: #0C3B5B;
+    padding:0 30px;
+    background-color: #D0E7FF;
+}
+
+.logo{
+    position:absolute;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.page-heading{
+    font-size: 40px;
+    position: fixed;
+    top:100px;
+    margin:  0 0 0 20px;
+}
+/* Settings */
+/* Insulin */
+.all-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.single-insulin{
+    width: 50% !important;
+}
+
+.single-item-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #051B2A;
+    color: rgb(208, 231, 255);
+    width:33.3%;
+    min-width: 530px;
+    margin:10px;
+    border-radius: 10%;
+}
+.insulin-item{
+    display: flex;
+    flex-wrap: wrap;
+    padding:20px 20px 0 20px;
+}
+.item-group{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+.date{
+    font-size: 12px;
+    color: rgb(208, 231, 255);
+}
+.label{
+    font-size: 16px;
+    color: #4a92d4;
+}
+.item{
+    padding:5px;
+}
+
+.viewbtn{
+    margin:0 0 0 20px;  
+    border-radius: 0;
+    border-radius: none;
+}
+
+.d-type{
+    text-transform: capitalize;
+}
+
+.totald{
+    font-size:60px;
+    padding:5px;
+}
+.total-delivery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+/* food */
+
+.food-btn{
+    position:fixed;
+    right:50px;
+}
+.food-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+/* food item for @media query */
+.food-item{
+    width: 25%;
+}
+.capital{
+    text-transform: capitalize;
+}
+
+.food-group{
+    padding-bottom: 20px;
+    justify-content: center;
+}
+
+.food-buttons{
+    align-items: center;
+    width:200px;
+    justify-content: space-around;
+}
