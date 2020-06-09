@@ -3,28 +3,17 @@
  */
 import React, { Component } from 'react'
 import axios from 'axios'
+import EditSettings from './EditSettings'
 
-/* Step 2
- * Rename this class to reflect the component being created
- *
- */
+
 export default class Settings extends Component {
 
-    /* Step 3
-    * Create a state for the component to store view data
-    *
-    */
     state = {
-        data: {}
+        data: {},
+        editView: false
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
+
     componentDidMount() {
         axios.get('/api/settings')
             .then((res) => {
@@ -33,21 +22,49 @@ export default class Settings extends Component {
             })
     }
 
-    /* Step 5
-    *  The render function manages what is shown in the browser
-    *  TODO: delete the jsx returned
-    *   and replace it with your own custom jsx template
-    *
-    */
+    toggleEditSettings = async () => {
+        const editView = !this.state.editView
+        if(this.state.editView){
+            try{
+                const settingsId = this.state.data._id
+                const passData = this.state.data
+                await axios.put(`/api/settings/${settingsId}`,passData)
+            } catch (err){
+                console.log('Put Err')
+                console.log(err)
+            }
+        }
+        this.setState({editView: editView})
+    }
+
+    onChangeCharacter = (evt) => {
+        const newState = { ...this.state }
+        newState.data[evt.target.name] = evt.target.value
+        this.setState(newState)
+    }
+
     render() {
         return (
             <div>
-                {/* Accessing the value of message from the state object */}
                 <h1>Global Settings</h1>
                 <div className='settings-info'>
-                    <div className='settings-entry'><span className='settings-label'>Carb Ratio:</span><span className='settings-data'>{this.state.data.carbRatio}</span></div>
-                </div>
+                    <div className='settings-entry'><span className='settings-label'>Carb Ratio:</span><span className='settings-data'> {this.state.data.carbRatio}</span></div>
+                    <div className='settings-entry'><span className='settings-label'>Correction Factor:</span><span className='settings-data'> (BG - {this.state.data.correctionSubtract})/{this.state.data.correctionDivisor}</span></div>
+                    <div className='settings-entry'><span className='settings-label'>Insulin Type:</span><span className='settings-data'> {this.state.data.insulinType}</span></div>
+                    <div className='settings-entry'><span className='settings-label'>Insulin Activity Length:</span><span className='settings-data'> {this.state.data.insulinActivityLength}</span></div>
+                    <button onClick={this.toggleEditSettings}>Edit</button>
+                    
+                    {this.state.editView ? 
+                    <EditSettings
+                        carbRatio={this.state.data.carbRatio}
+                        correctionSubtract={this.state.data.correctionSubtract}
+                        correctionDivisor={this.state.data.correctionDivisor}
+                        insulinType={this.state.data.insulinType}
+                        insulinActivityLength={this.state.data.insulinActivityLength}
+                        onChangeCharacter={this.onChangeCharacter}/> :
+                         null}
 
+                </div>
             </div>
         )
     }
