@@ -15,7 +15,7 @@ export default class HelloWorld extends Component {
     *
     */
     state = {
-        message: ''
+        data: ''
     }
 
     /* Step 4
@@ -26,9 +26,10 @@ export default class HelloWorld extends Component {
     *   -REMINDER remember `setState` it is an async function
     */
     componentDidMount() {
-        axios.get('/api/helloworld')
+        axios.get('/api/food')
             .then((res) => {
-                this.setState({message: res.data})
+                this.setState({data: res.data})
+                console.log(this.state.data)
             })
     }
 
@@ -42,7 +43,7 @@ export default class HelloWorld extends Component {
         return (
             <div>
                 {/* Accessing the value of message from the state object */}
-                <h1>{this.state.message}</h1>
+                <h1>{this.state.data}</h1>
             </div>
         )
     }
