@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import FoodSearch from './FoodSearch'
 
 export default class NewInsulin extends Component {
     state = {
@@ -21,6 +22,10 @@ export default class NewInsulin extends Component {
             correctionDivisor: 0,
             insulinType: '',
             activeInsulin: 0
+        },
+        foodSearch:{
+            foodItems:[],
+            totalCarbs:0
         },
         redirect:false
 
@@ -107,11 +112,12 @@ export default class NewInsulin extends Component {
     }
 
     render() {
-        // if (this.state.redirect) {
-        //     return (<Redirect exact to='/' />)
-        // }
+        if (this.state.redirect) {
+            return (<Redirect exact to='/' />)
+        }
         return (
             <div>
+                <FoodSearch/>
                 <form onSubmit={this.onSubmit}>
                     <h3>Correction</h3>
                     <div className='form-group'>
@@ -127,6 +133,7 @@ export default class NewInsulin extends Component {
                         <span id='fixedCorrection' className='automated'>0</span>
                     </div>
                     <h3>Carbs</h3>
+                    
                     <div className='form-group'>
                         <label htmlFor='totalCarbs'>Total Carbs</label>
                         <input type="number" name="totalCarbs" onChange={this.onChangeNum} />
@@ -150,6 +157,7 @@ export default class NewInsulin extends Component {
                     <input type="submit" value="Create Delivery" />
                 </form>
             </div>
+            
         )
     }
 }

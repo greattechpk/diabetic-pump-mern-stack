@@ -28,47 +28,47 @@ export default class AllInsulin extends Component {
                 <h1>All Insulin</h1>
                 {this.state.data.map(delivery =>{
                     return(
-                        <div class="single-item-container">
+                        <div className="single-item-container" key={delivery._id}>
 
-                        <div class="insulin-item">
-                            <div class="item-group">
-                                <div class="item">
-                                    <div class="label">Blood Glucose</div>
-                                    <div class="data">{delivery.bloodGlucose}</div>
+                        <div className="insulin-item">
+                            <div className="item-group">
+                                <div className="item">
+                                    <div className="label">Blood Glucose</div>
+                                    <div className="data">{delivery.bloodGlucose}</div>
                                 </div>
-                                <div class="item">
-                                    <div class="label">Correction</div>
-                                    <div class="data long">{delivery.fixedCorrection}u</div>
-                                </div>
-                            </div>
-                            <div class="item-group">
-                                <div class="item">
-                                    <div class="label">Total Carbs</div>
-                                    <div class="data">{delivery.totalCarbs}g</div>
-                                </div>
-                                <div class="item">
-                                    <div class="label">Food Delivery</div>
-                                    <div class="data">{delivery.totalFoodDelivery}u</div>
+                                <div className="item">
+                                    <div className="label">Correction</div>
+                                    <div className="data long">{delivery.fixedCorrection}u</div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="label">Delivery Type</div>
-                                <div class="data d-type">{delivery.deliveryType}</div>
+                            <div className="item-group">
+                                <div className="item">
+                                    <div className="label">Total Carbs</div>
+                                    <div className="data">{delivery.totalCarbs}g</div>
+                                </div>
+                                <div className="item">
+                                    <div className="label">Food Delivery</div>
+                                    <div className="data">{delivery.totalFoodDelivery}u</div>
+                                </div>
                             </div>
-                            <div class="item">
-                                <div class="label">Delivery Time</div>
-                                <div class="data date">{delivery.deliveryTime}</div>
+                            <div className="item">
+                                <div className="label">Delivery Type</div>
+                                <div className="data d-type">{delivery.deliveryType}</div>
+                            </div>
+                            <div className="item">
+                                <div className="label">Delivery Time</div>
+                                <div className="data date">{delivery.deliveryTime}</div>
                             </div>
                         </div>
-                        <div class="container">
-                            <Link class="viewbtn" to={delivery._id}>
+                        <div className="container">
+                            <Link className="viewbtn" to={delivery._id}>
                                 <button>
                                     View
                                 </button>
                             </Link>
-                            <div class="item total-delivery">
-                                <div class="label">Total</div>
-                                <div class="data totald">{delivery.totalDelivery}u</div>
+                            <div className="item total-delivery">
+                                <div className="label">Total</div>
+                                <div className="data totald">{delivery.totalDelivery}u</div>
                             </div>
                         </div>
                     </div>

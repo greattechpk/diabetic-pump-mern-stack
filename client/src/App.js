@@ -10,17 +10,17 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <navbar class="navbar desktop">
-        <div class="logo-container"><img class="logo" src="/syringe.jpg" alt="#"/></div>
+      <div className="navbar desktop">
+        <div className="logo-container"><img className="logo" src="/syringe.jpg" alt="#"/></div>
           <nav>
-            <Link to="/" class="navlink">All Deliveries</Link>
-            <Link to="/nutrition" class="navlink">Nutrition</Link>
-            <Link to="/settings" class="navlink">Settings</Link>
+            <Link to="/" className="navlink">All Deliveries</Link>
+            <Link to="/nutrition" className="navlink">Nutrition</Link>
+            <Link to="/settings" className="navlink">Settings</Link>
           </nav>
           <Link to="/new">
             <button>New Delivery</button>
           </Link>
-    </navbar>
+    </div>
         
           <Switch>
             <Route exact path="/settings" component={Settings} />
