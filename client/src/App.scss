@@ -1,48 +1,47 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap");
 
-*{
-    font-family: 'Montserrat', sans-serif !important;
+* {
+    font-family: "Montserrat", sans-serif !important;
 }
 
-body{
-    padding-top:80px;
+body {
+    padding-top: 80px;
 }
-
 
 /* button style src = https://css-tricks.com/overriding-default-button-styles/ */
 button {
@@ -57,8 +56,7 @@ button {
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
+    transition: background 250ms ease-in-out, transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -77,12 +75,12 @@ button:active {
     transform: scale(0.99);
 }
 /* layout */
-.navbar{
-    background-color: #051B2A;
+.navbar {
+    background-color: #051b2a;
     position: fixed;
     width: 100%;
     margin: 0;
-    top:0;
+    top: 0;
     padding: 0 10px;
     display: flex;
     flex-direction: row;
@@ -90,119 +88,144 @@ button:active {
     min-height: 30px;
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: row;
 }
 
-.navlink{
-    height:60px;
+.navlink {
+    height: 60px;
     text-decoration: none;
-    color: #D0E7FF;
-    padding:0 20px;
-    background-color: #0C3B5B;
+    color: #d0e7ff;
+    padding: 0 20px;
+    background-color: #0c3b5b;
     display: flex;
     align-items: center;
 }
 
-.navlink:hover{
-    color: #0C3B5B;
-    padding:0 30px;
-    background-color: #D0E7FF;
+.navlink:hover {
+    color: #0c3b5b;
+    padding: 0 30px;
+    background-color: #d0e7ff;
 }
 
-.logo{
-    position:absolute;
+.logo {
+    position: absolute;
     width: 100px;
     border-radius: 50%;
 }
 
-.page-heading{
+.page-heading {
     font-size: 40px;
     position: fixed;
-    top:100px;
-    margin:  0 0 0 20px;
+    top: 100px;
+    margin: 0 0 0 20px;
 }
 /* Settings */
 
-.edit-settings{
+.settings-info {
+    padding: 15px 25px;
+    width: 30%;
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #051B2A;
+    color: #fff;
+    border-radius: 50px;
+    .settings-entry {
+        padding: 5px;
+        
+        display: flex;
+        justify-content: space-between;
+        .settings-label {
+            font-weight: 600;
+        }
+        .settings-data {
+        }
+    }
+    button {
+        margin: 20px 0;
+    }
+}
+
+.edit-settings {
     display: flex;
     flex-direction: column;
-    div{
+    padding: 30px 0;
+    div {
+        width: 100%;
         margin: 0 auto;
         display: flex;
-        justify-content: center;
-        width: 50%;
+        justify-content: space-between;
         align-content: space-between;
+        padding: 5px 0;
     }
 }
 
 /* Insulin */
-.all-items{
+.all-items {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-.single-insulin{
+.single-insulin {
     width: 50% !important;
 }
 
-.single-item-container{
+.single-item-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #051B2A;
+    background-color: #051b2a;
     color: rgb(208, 231, 255);
-    width:33.3%;
+    width: 33.3%;
     min-width: 530px;
-    margin:10px;
+    margin: 10px;
     border-radius: 10%;
 }
-.insulin-item{
+.insulin-item {
     display: flex;
     flex-wrap: wrap;
-    padding:20px 20px 0 20px;
+    padding: 20px 20px 0 20px;
 }
-.item-group{
+.item-group {
     display: flex;
     flex-direction: row;
     width: 50%;
 }
-.date{
+.date {
     font-size: 12px;
     color: rgb(208, 231, 255);
 }
-.label{
+.label {
     font-size: 16px;
     color: #4a92d4;
 }
-.item{
-    padding:5px;
+.item {
+    padding: 5px;
 }
 
-.viewbtn{
-    margin:0 0 0 20px;  
+.viewbtn {
+    margin: 0 0 0 20px;
     border-radius: 0;
     border-radius: none;
 }
 
-.d-type{
+.d-type {
     text-transform: capitalize;
 }
 
-.totald{
-    font-size:60px;
-    padding:5px;
+.totald {
+    font-size: 60px;
+    padding: 5px;
 }
-.total-delivery{
+.total-delivery {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -212,30 +235,30 @@ nav{
 
 /* food */
 
-.food-btn{
-    position:fixed;
-    right:50px;
+.food-btn {
+    position: fixed;
+    right: 50px;
 }
-.food-container{
+.food-container {
     display: flex;
     flex-wrap: wrap;
     width: 50%;
 }
 /* food item for @media query */
-.food-item{
+.food-item {
     width: 25%;
 }
-.capital{
+.capital {
     text-transform: capitalize;
 }
 
-.food-group{
+.food-group {
     padding-bottom: 20px;
     justify-content: center;
 }
 
-.food-buttons{
+.food-buttons {
     align-items: center;
-    width:200px;
+    width: 200px;
     justify-content: space-around;
 }

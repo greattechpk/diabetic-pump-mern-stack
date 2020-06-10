@@ -4,6 +4,7 @@ export default class EditSettings extends Component {
     render() {
         return (
             <div>
+                <h5>Press the edit button again to save settings.</h5>
                 <form className='edit-settings'>
                     <div>
                         <label htmlFor='carbRatio'>Carb Ratio</label>

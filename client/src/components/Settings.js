@@ -46,8 +46,9 @@ export default class Settings extends Component {
     render() {
         return (
             <div>
-                <h1>Global Settings</h1>
+                
                 <div className='settings-info'>
+                <h1>Global Settings</h1>
                     <div className='settings-entry'><span className='settings-label'>Carb Ratio:</span><span className='settings-data'> {this.state.data.carbRatio}</span></div>
                     <div className='settings-entry'><span className='settings-label'>Correction Factor:</span><span className='settings-data'> (BG - {this.state.data.correctionSubtract})/{this.state.data.correctionDivisor}</span></div>
                     <div className='settings-entry'><span className='settings-label'>Insulin Type:</span><span className='settings-data'> {this.state.data.insulinType}</span></div>

@@ -1,25 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Settings from './components/Settings.js'
+import { Link } from 'react-router-dom'
+import Settings from './components/Settings'
+import AllInsulin from './components/AllInsulin'
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
+      <Router>
       <navbar class="navbar desktop">
         <div class="logo-container"><img class="logo" src="/syringe.jpg" alt="#"/></div>
           <nav>
-            <a href="/" class="navlink">All Deliveries</a>
-            <a href="/food" class="navlink">Food</a>
-            <a href="/settings" class="navlink">Settings</a>
+            <Link to="/" class="navlink">All Deliveries</Link>
+            <Link to="/nutrition" class="navlink">Nutrition</Link>
+            <Link to="/settings" class="navlink">Settings</Link>
           </nav>
-          <a href="/new">
+          <Link to="/new">
             <button>New Delivery</button>
-          </a>
+          </Link>
     </navbar>
-        <Router>
+        
           <Switch>
             <Route exact path="/settings" component={Settings} />
+            <Route exact path="/" component={AllInsulin} />
           </Switch>
         </Router>
     </div>
