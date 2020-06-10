@@ -32,7 +32,7 @@ function createInsulin(newInsulin) {
         + "/" + currentdate.getFullYear() + " "
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-
+    console.log("model worked")
     return insulinCollection.create(newInsulin)
 }
 
