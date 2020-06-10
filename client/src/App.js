@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Settings from './components/Settings'
 import AllInsulin from './components/AllInsulin'
+import NewInsulin from './components/NewInsulin'
 import './App.scss';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Switch>
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/" component={AllInsulin} />
+            <Route exact path="/new" component={NewInsulin} />
           </Switch>
         </Router>
     </div>
