@@ -3,8 +3,11 @@ import axios from 'axios'
 
 export default class FoodSearch extends Component {
     state = {
-        search:''
+        search:'',
+        parsed:[]
     }
+
+
     onCharacterChange = (evt) => {
         const newState = {...this.state}
         newState[evt.target.name] = evt.target.value
@@ -15,7 +18,11 @@ export default class FoodSearch extends Component {
     onSearch = async (evt) =>{
         evt.preventDefault()
         try{
-            const result = await axios.get('https://api.edamam.com/api/food-database/parser')
+            let search = this.state.search
+            search = search.split(' ').join('%20')
+            let result = await axios.get(`https://api.edamam.com/api/food-database/parser?ingr=${search}&app_id=b6da0fca&app_key=02acafbceb6ee853539268717f03f694`)
+            result = result.data.hints
+            console.log(result)
         }catch(err){
             console.log(err)
         }
