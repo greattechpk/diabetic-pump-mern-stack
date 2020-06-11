@@ -31,6 +31,8 @@ export default class FoodSearch extends Component {
         console.log(this.state.parsed)
     }
 
+
+
     render() {
         return (
             <div>
@@ -41,7 +43,6 @@ export default class FoodSearch extends Component {
                 </form>
                 <div className='result-display'>
                     {this.state.parsed.map((foodItem, index) => {
-                        console.log(foodItem, index)
                         return (
                             <div className='food-result' key={index}>
                                 <h5>{foodItem.food.label}</h5>
@@ -52,8 +53,8 @@ export default class FoodSearch extends Component {
                                     <div className='result-nutrient'><span>Protien: </span>{foodItem.food.nutrients.PROCNT}</div>
                                     <div className='result-carbs'><span>Carbs: </span>{foodItem.food.nutrients.CHOCDF}</div>
                                 </div>
-                                <div className='button-container'>
-                                <button>+</button>
+                                <div className='button-container' >
+                                <button onClick={() => this.props.onAddFood(foodItem.food)}>+</button>
                                 </div>
                             </div>
                         )

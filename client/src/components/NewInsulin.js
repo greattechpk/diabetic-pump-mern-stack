@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import FoodSearch from './FoodSearch'
+import FoodSelection from './FoodSelection'
 
 export default class NewInsulin extends Component {
     state = {
@@ -14,7 +15,7 @@ export default class NewInsulin extends Component {
             totalFoodDelivery: 0,
             deliveryType: 'both',
             totalDelivery: 0,
-            deliveryTime:''
+            deliveryTime: ''
         },
         settings: {
             carbRatio: 0,
@@ -23,11 +24,11 @@ export default class NewInsulin extends Component {
             insulinType: '',
             activeInsulin: 0
         },
-        foodSearch:{
-            foodItems:[],
-            totalCarbs:0
+        foodSearch: {
+            foodItems: [],
+            totalCarbs: 0
         },
-        redirect:false
+        redirect: false
 
     }
 
@@ -64,7 +65,7 @@ export default class NewInsulin extends Component {
     calcFood = () => {
         const tCarbs = this.state.form.totalCarbs
         const newState = { ...this.state }
-        newState.form.totalFoodDelivery = tCarbs / this.state.settings.carbRatio
+        newState.form.totalFoodDelivery = (tCarbs + newState.foodSearch.totalCarbs) / this.state.settings.carbRatio
         document.getElementById('totalFoodDelivery').textContent = newState.form.totalFoodDelivery
         this.setState(newState)
     }
@@ -89,23 +90,45 @@ export default class NewInsulin extends Component {
         this.setState(newState)
     }
 
-    onSelect = (evt) => { 
-        const newState = {...this.state}
+    onSelect = (evt) => {
+        const newState = { ...this.state }
         newState.form.deliveryType = evt.target.value
         console.log(evt.target.value)
         this.setState(newState)
     }
 
+    onAddFood = (food) => {
+        console.log(food)
+        const newState = { ...this.state }
+        newState.foodSearch.totalCarbs += food.nutrients.CHOCDF
+        newState.foodSearch.foodItems.push(food)
+        this.setState(newState)
+        console.log(this.state.foodSearch.totalCarbs)
+        this.calcFood()
+    }
+
+    onRemoveFood = (food) => {
+        console.log(food)
+        const newState = { ...this.state }
+        newState.foodSearch.totalCarbs -= food.nutrients.CHOCDF
+        newState.foodSearch.foodItems.splice(newState.foodSearch.foodItems.indexOf(food),1)
+        this.setState(newState)
+        console.log(this.state.foodSearch.totalCarbs)
+        this.calcFood()
+    }
+
     onSubmit = async (evt) => {
         evt.preventDefault()
-        try{
-            const newState = {...this.state}
+        try {
+            const newState = { ...this.state }
+            newState.form.foodItems = [...newState.form.foodItems, ...newState.foodSearch.foodItems]
+            newState.form.totalCarbs += newState.foodSearch.totalCarbs
             newState.redirect = true
             console.log(this.state.form)
             await axios.post('/api', this.state.form)
             this.setState(newState)
             console.log('ok')
-        }catch (err){
+        } catch (err) {
             console.log('Failed to create new tier')
             console.log(err)
         }
@@ -117,7 +140,7 @@ export default class NewInsulin extends Component {
         }
         return (
             <div>
-                <FoodSearch/>
+                <FoodSearch onAddFood={this.onAddFood} />
                 <form onSubmit={this.onSubmit}>
                     <h3>Correction</h3>
                     <div className='form-group'>
@@ -133,7 +156,7 @@ export default class NewInsulin extends Component {
                         <span id='fixedCorrection' className='automated'>0</span>
                     </div>
                     <h3>Carbs</h3>
-                    
+                    <FoodSelection foodItems={this.state.foodSearch.foodItems} onRemoveFood={this.onRemoveFood}/>
                     <div className='form-group'>
                         <label htmlFor='totalCarbs'>Total Carbs</label>
                         <input type="number" name="totalCarbs" onChange={this.onChangeNum} />
@@ -157,7 +180,7 @@ export default class NewInsulin extends Component {
                     <input type="submit" value="Create Delivery" />
                 </form>
             </div>
-            
+
         )
     }
 }
