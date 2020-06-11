@@ -23,7 +23,6 @@ export default class AllInsulin extends Component {
 
     render() {
         return (
-            <Router>
             <div>
                 <h1>All Insulin</h1>
                 {this.state.data.map(delivery =>{
@@ -61,10 +60,8 @@ export default class AllInsulin extends Component {
                             </div>
                         </div>
                         <div className="container">
-                            <Link className="viewbtn" to={delivery._id}>
-                                <button>
-                                    View
-                                </button>
+                            <Link className='viewbtn' to={`/insulin/${delivery._id}`}>
+                                    <button>View</button>
                             </Link>
                             <div className="item total-delivery">
                                 <div className="label">Total</div>
@@ -74,7 +71,6 @@ export default class AllInsulin extends Component {
                     </div>
                 )})}
             </div>
-            </Router>
         )
     }
 }
