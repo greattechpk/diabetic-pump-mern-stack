@@ -77,8 +77,8 @@ export default class NewInsulin extends Component {
         const newState = { ...this.state }
         tc = (bg - this.state.settings.correctionSubtract) / this.state.settings.correctionDivisor
         fc = tc - this.state.settings.activeInsulin
-        document.getElementById('totalCorrection').textContent = tc
-        document.getElementById('fixedCorrection').textContent = fc
+        document.getElementById('totalCorrection').textContent = (tc).toFixed(2)
+        document.getElementById('fixedCorrection').textContent = (fc).toFixed(2)
         newState.form.totalCorrection = tc
         newState.form.fixedCorrection = fc
         this.setState(newState)
@@ -86,7 +86,7 @@ export default class NewInsulin extends Component {
     calcTotal = () => {
         const newState = { ...this.state }
         newState.form.totalDelivery = newState.form.fixedCorrection + newState.form.totalFoodDelivery
-        document.getElementById('totalDelivery').textContent = newState.form.totalDelivery
+        document.getElementById('totalDelivery').textContent = (newState.form.totalDelivery).toFixed(2)
         this.setState(newState)
     }
 
@@ -159,30 +159,30 @@ export default class NewInsulin extends Component {
             return (<Redirect exact to='/' />)
         }
         return (
-            <div>
+            <div className="new-insulin-container">
                 <FoodSearch onAddFood={this.onAddFood} />
                 <form onSubmit={this.onSubmit}>
                     <h3>Correction</h3>
                     <div className='form-group'>
-                        <label htmlFor='bloodGlucose'>Blood Glucose</label>
+                        <label htmlFor='bloodGlucose'>Blood Glucose: </label>
                         <input type="number" name="bloodGlucose" onChange={this.onChangeNum} />
                     </div>
                     <div className='form-group'>
-                        <span className='form-entry-label'>Total Correction:</span>
+                        <span className='form-entry-label'>Total Correction: </span>
                         <span id='totalCorrection' className='automated'>0</span>
                     </div>
                     <div className='form-group'>
-                        <span className='form-entry-label'>Fixed Correction:</span>
+                        <span className='form-entry-label'>Fixed Correction: </span>
                         <span id='fixedCorrection' className='automated'>0</span>
                     </div>
                     <h3>Carbs</h3>
                     <FoodSelection foodItems={this.state.foodSearch.foodItems} onRemoveFood={this.onRemoveFood}/>
                     <div className='form-group'>
-                        <label htmlFor='totalCarbs'>Total Carbs</label>
+                        <label htmlFor='totalCarbs'>Total Carbs: </label>
                         <input type="number" name="totalCarbs" onChange={this.onChangeNum} />
                     </div>
                     <div className='form-group'>
-                        <span className='form-entry-label'>Total Food Delivery:</span>
+                        <span className='form-entry-label'>Total Food Delivery: </span>
                         <span id='totalFoodDelivery' className='automated'>0</span>
                     </div>
                     <h3>Delivery Summary</h3>
@@ -197,7 +197,7 @@ export default class NewInsulin extends Component {
                         <span className='form-entry-label'>Total Delivery:</span>
                         <span id='totalDelivery' className='automated'>0</span>
                     </div>
-                    <input type="submit" value="Create Delivery" />
+                    <input className="submit" type="submit" value="Create Delivery" />
                 </form>
             </div>
 

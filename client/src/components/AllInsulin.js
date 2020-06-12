@@ -21,7 +21,7 @@ export default class AllInsulin extends Component {
 
     render() {
         return (
-            <div>
+            <div className="all-items">
                 <h1>All Insulin</h1>
                 {this.state.data.map(delivery =>{
                     return(
@@ -45,7 +45,7 @@ export default class AllInsulin extends Component {
                                 </div>
                                 <div className="item">
                                     <div className="label">Food Delivery</div>
-                                    <div className="data">{delivery.totalFoodDelivery}u</div>
+                                    <div className="data">{(delivery.totalFoodDelivery).toFixed(2)}u</div>
                                 </div>
                             </div>
                             <div className="item">
@@ -63,7 +63,7 @@ export default class AllInsulin extends Component {
                             </Link>
                             <div className="item total-delivery">
                                 <div className="label">Total</div>
-                                <div className="data totald">{delivery.totalDelivery}u</div>
+                                <div className="data totald">{(delivery.totalDelivery).toFixed(2)}u</div>
                             </div>
                         </div>
                     </div>

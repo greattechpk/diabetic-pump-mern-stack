@@ -39,7 +39,7 @@ export default class FoodSearch extends Component {
                 <h3>Food Search</h3>
                 <form onSubmit={this.onSearch}>
                     <input type='text' name='search' value={this.state.search} onChange={this.onCharacterChange}></input>
-                    <input type='submit' value='search' ></input>
+                    <input className="submit" type='submit' value='search' ></input>
                 </form>
                 <div className='result-display'>
                     {this.state.parsed.map((foodItem, index) => {

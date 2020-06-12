@@ -74,6 +74,40 @@ button:focus {
 button:active {
     transform: scale(0.99);
 }
+
+.submit {
+    display: inline-block;
+    border: none;
+    padding: 8px 15px;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.header-btn{
+    height: 100%;
+}
+.submit:hover,
+.submit:focus {
+    background: #0053ba;
+}
+
+.submit:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.submit:active {
+    transform: scale(0.99);
+}
+
 /* layout */
 .navbar {
     background-color: #051b2a;
@@ -233,15 +267,28 @@ nav {
     width: 90%;
 }
 
+.new-insulin-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #051b2a;
+    color: rgb(208, 231, 255);
+    width: 33.3%;
+    min-width: 530px;
+    margin: 0 auto;
+    padding:50px 0;
+    border-radius: 10%;
+}
+
 /* food */
 
 .result-display{
-    border: solid 1px orange;
     width:60%;
     margin: 10px auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content:space-between;
 }
 
 .food-result{
@@ -282,4 +329,16 @@ nav {
 .result-image{
     height:40px;
     width:40px;
+}
+
+// form
+
+.form-group{
+    margin:5px;
+}
+
+.form-entry-label{
+    padding:5px;
+    font-weight: 600;
+    font-size: 18px;
 }

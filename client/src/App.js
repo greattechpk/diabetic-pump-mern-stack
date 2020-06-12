@@ -22,7 +22,7 @@ function App() {
             <Link to="/settings" className="navlink">Settings</Link>
           </nav>
           <Link to="/new">
-            <button>New Delivery</button>
+            <button className='header-btn'>New Delivery</button>
           </Link>
     </div>
         
