@@ -29,6 +29,9 @@ Edamam food database is the API used to provide food data.
   - Daily BG Average
   - Daily Insulin Total Average
 
+### Link to Project Board
+[Project Board](https://github.com/greattechpk/diabetic-pump-mern-stack/projects/1)
+
 ## Uploaded To Heroku
 [Click Here for online Heroku deployment](https://diabetic-pump-mern-stack.herokuapp.com/)
 
