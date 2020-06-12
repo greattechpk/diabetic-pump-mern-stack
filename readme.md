@@ -27,3 +27,7 @@ Edamum food database is the API used to provide food data.
   - Daily Insulin Total Average
 
 ## Uploaded To Heroku
+
+### ERD Image
+
+![ERD Image](https://raw.githubusercontent.com/greattechpk/diabetic-pump-mern-stack/master/Planning/Diabetic%20ERD.png "Erd Image")
