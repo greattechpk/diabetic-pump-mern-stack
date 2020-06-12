@@ -6,7 +6,9 @@ This is a mern stack project which takes in information used to deliver insulin 
 
 Origionally this is based off of one of my older projects()
 
-In this new version instead of Handlebars, ReactJS is used.
+In this new version instead of Handlebars, ReactJS is used. Along with that an api is used to search food and add carb calculations along with having a nutrition totals section tracking fat protien and carbohydrate intake.
+
+Edamum food database is the API used to provide food data.
 
 ## Technologies Used
 
