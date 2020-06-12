@@ -1,4 +1,4 @@
-# closed-loop-pancreas-db
+# Diabetic-pump-mern-stack
 **General Assembly ATL SEI-27 Project 4**
 This is a mern stack project which takes in information used to deliver insulin for type 1 diabetics. The core functionality from this project allows for somone to make fake insulin deliveries based on a calcultor that takes in parameters set up in settings to make the correct calculations for the correct insulin amount.
 
