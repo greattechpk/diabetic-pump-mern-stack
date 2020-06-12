@@ -31,3 +31,8 @@ Edamum food database is the API used to provide food data.
 ### ERD Image
 
 ![ERD Image](https://raw.githubusercontent.com/greattechpk/diabetic-pump-mern-stack/master/Planning/Diabetic%20ERD.png "Erd Image")
+
+### Wireframe Image
+
+
+![Wireframe Image](https://raw.githubusercontent.com/greattechpk/diabetic-pump-mern-stack/master/Planning/clpdb-Wireframe.jpg "Wireframe Image")
