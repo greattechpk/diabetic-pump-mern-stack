@@ -8,9 +8,9 @@ Origionally this is based off of one of my older projects()
 
 In this new version instead of Handlebars, ReactJS is used. Along with that an api is used to search food and add carb calculations along with having a nutrition totals section tracking fat protien and carbohydrate intake.
 
-Edamum food database is the API used to provide food data.
+Edamam food database is the API used to provide food data.
 
-#### Edamum
+#### Edamam
 [Edamam API Link](https://developer.edamam.com/food-database-api)
 
 ## Technologies Used
@@ -20,7 +20,7 @@ Edamum food database is the API used to provide food data.
   3. MongoDB
   4. ReactJS
   5. Heroku
-  6. Edamum API
+  6. Edamam API
   7. Express
 
 ### Features In Progress
