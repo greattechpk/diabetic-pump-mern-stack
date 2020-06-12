@@ -5,6 +5,9 @@ import Settings from './components/Settings'
 import AllInsulin from './components/AllInsulin'
 import NewInsulin from './components/NewInsulin'
 import SingleInsulin from './components/SingleInsulin'
+import AllNutrition from './components/AllNutrition'
+import AdminNutrition from './components/AdminNutrition'
+import AdminSettings from './components/AdminSettings'
 import './App.scss';
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/new" component={NewInsulin} />
             <Route exact path='/insulin/:id' component={SingleInsulin}/>
+            <Route exact path='/nutrition' component={AllNutrition}/>
+            <Route exact path='/admin-nutrition' component={AdminNutrition}/>
+            <Route exact path='/admin-settings' component={AdminSettings} />
             <Route exact path="/" component={AllInsulin} />
           </Switch>
         </Router>

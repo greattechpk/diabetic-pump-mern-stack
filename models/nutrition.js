@@ -2,13 +2,10 @@ const mongoose = require('./connection.js')
 const Schema = mongoose.Schema
 
 const nutritionSchema = new Schema({
-    date: String,
+    date: Date,
     totalCarbs: Number,
-    totalCholesterol: Number,
     fat: Number,
-    iron: Number,
-    protein: Number,
-    sugar: Number
+    protein: Number
 })
 
 const nutritionCollection = mongoose.model('nutrition', nutritionSchema)
@@ -31,6 +28,12 @@ function getFirstNutrition(){
 
 // CREATE
 function createNutrition(newNutrition) {
+    let currentdate = new Date(); //src https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
+    newNutrition.date = currentdate.getDay() + "/" + currentdate.getMonth()
+        + "/" + currentdate.getFullYear() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    console.log("model worked")
     return nutritionCollection.create(newNutrition)
 }
 

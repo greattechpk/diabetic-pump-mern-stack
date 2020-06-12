@@ -46,7 +46,7 @@ export default class FoodSearch extends Component {
                         return (
                             <div className='food-result' key={index}>
                                 <h5>{foodItem.food.label}</h5>
-                                <img className='result-image' src={foodItem.food.image} />
+                                <img className='result-image' src={foodItem.food.image} alt={foodItem.food.label}/>
                                 <div className='nutrient-values'>
                                     <div className='result-nutrient'><span>Calories: </span>{foodItem.food.nutrients.ENERC_KCAL}</div>
                                     <div className='result-nutrient'><span>Fat: </span>{foodItem.food.nutrients.FAT}</div>

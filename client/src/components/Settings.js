@@ -17,7 +17,7 @@ export default class Settings extends Component {
     componentDidMount() {
         axios.get('/api/settings')
             .then((res) => {
-                this.setState({ data: res.data[0] })
+                this.setState({ data: res.data[res.data.length-1] })
                 console.log(this.state.data)
             })
     }

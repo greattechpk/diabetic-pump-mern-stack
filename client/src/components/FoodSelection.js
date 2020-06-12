@@ -10,7 +10,7 @@ export default class FoodSelection extends Component {
                     return (
                         <div className='food-result' key={index}>
                             <h5>{foodItem.label}</h5>
-                            <img className='result-image' src={foodItem.image} />
+                            <img className='result-image' src={foodItem.image} alt={foodItem.label}/>
                             <div className='nutrient-values'>
                                 <div className='result-nutrient'><span>Calories: </span>{foodItem.nutrients.ENERC_KCAL}</div>
                                 <div className='result-nutrient'><span>Fat: </span>{foodItem.nutrients.FAT}</div>

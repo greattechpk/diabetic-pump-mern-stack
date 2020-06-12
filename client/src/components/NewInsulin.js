@@ -10,7 +10,7 @@ export default class NewInsulin extends Component {
             bloodGlucose: 100,
             totalCorrection: 0,
             fixedCorrection: 0,
-            foodItems: ["Other"],
+            foodItems: [],
             totalCarbs: 0,
             totalFoodDelivery: 0,
             deliveryType: 'both',
@@ -35,7 +35,7 @@ export default class NewInsulin extends Component {
     componentDidMount = async () => {
         try {
             let data = await axios.get('/api/settings')
-            data = data.data[0]
+            data = data.data[data.data.length -1]
             const newState = { ...this.state }
             Object.keys(newState.settings).forEach(kv => {
                 newState.settings[kv] = data[kv]
@@ -103,6 +103,7 @@ export default class NewInsulin extends Component {
         newState.foodSearch.totalCarbs += food.nutrients.CHOCDF
         newState.foodSearch.foodItems.push(food)
         this.setState(newState)
+        console.log(this.state.foodSearch.foodItems)
         console.log(this.state.foodSearch.totalCarbs)
         this.calcFood()
     }
@@ -125,8 +126,27 @@ export default class NewInsulin extends Component {
             newState.form.totalCarbs += newState.foodSearch.totalCarbs
             newState.redirect = true
             console.log(this.state.form)
-            await axios.post('/api', this.state.form)
             this.setState(newState)
+            await axios.post('/api', this.state.form)
+            let nutrition = await axios.get('/api/nutrition')
+            let nutritionId = nutrition.data[nutrition.data.length-1]._id
+            nutrition = nutrition.data[nutrition.data.length-1]
+            console.log(nutrition)
+            let nutritionObj = {
+                totalCarbs: 0,
+                fat:0,
+                protein:0
+            }
+            this.state.form.foodItems.forEach(food => {
+                let carbs = food.nutrients.CHOCDF + nutrition.totalCarbs
+                let fat = food.nutrients.FAT + nutrition.fat
+                let protien = food.nutrients.PROCNT + nutrition.protein
+                nutritionObj.totalCarbs += carbs
+                nutritionObj.fat += fat
+                nutritionObj.protein += protien 
+            })
+            await axios.put(`/api/nutrition/${nutritionId}`, nutritionObj)
+            console.log(nutritionObj)
             console.log('ok')
         } catch (err) {
             console.log('Failed to create new tier')
