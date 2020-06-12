@@ -12,6 +12,7 @@ export default class SingleInsulin extends Component {
         try{
             const res = await Axios.get(`/api/${getter}`)
             console.log(res.data)
+            res.data.totalDelivery = (res.data.totalDelivery).toFixed(3)
             this.setState({data:res.data})
             console.log(this.state)
         }catch (err){
