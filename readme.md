@@ -11,7 +11,7 @@ In this new version instead of Handlebars, ReactJS is used. Along with that an a
 Edamum food database is the API used to provide food data.
 
 #### Edamum
-[Click Here for online Heroku deployment](https://diabetic-pump-mern-stack.herokuapp.com/)
+[Edamam API Link](https://developer.edamam.com/food-database-api)
 
 ## Technologies Used
 
