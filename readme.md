@@ -10,6 +10,9 @@ In this new version instead of Handlebars, ReactJS is used. Along with that an a
 
 Edamum food database is the API used to provide food data.
 
+#### Edamum
+[Click Here for online Heroku deployment](https://diabetic-pump-mern-stack.herokuapp.com/)
+
 ## Technologies Used
 
   1. JavaScript
@@ -27,7 +30,7 @@ Edamum food database is the API used to provide food data.
   - Daily Insulin Total Average
 
 ## Uploaded To Heroku
-[Online Heroku Deployment](https://diabetic-pump-mern-stack.herokuapp.com/)
+[Click Here for online Heroku deployment](https://diabetic-pump-mern-stack.herokuapp.com/)
 
 ### ERD Image
 ![ERD Image](https://raw.githubusercontent.com/greattechpk/diabetic-pump-mern-stack/master/Planning/Diabetic%20ERD.png "Erd Image")
