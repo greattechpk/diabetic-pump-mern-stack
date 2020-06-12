@@ -7,6 +7,7 @@ export default class SingleInsulin extends Component {
         data:{}
     }
 
+    
     async componentDidMount(){
         let getter =  this.props.match.params.id
         try{
