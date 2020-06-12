@@ -1,31 +1,20 @@
-# mern-template-project
+# closed-loop-pancreas-db
+**General Assembly ATL SEI-27 Project 4**
+This is a mern stack project which takes in information used to deliver insulin for type 1 diabetics. The core functionality from this project allows for somone to make fake insulin deliveries based on a calcultor that takes in parameters set up in settings to make the correct calculations for the correct insulin amount.
 
-# Setup A New Project From This Template
+## Technologies Used
 
-If you are starting a new project do the following:
+  1. JavaScript
+  2. Node/NPM
+  3. MongoDB
+  4. Handlebars
+  5. Heroku
+  6. HTML/CSS
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+### Features In Progress
+  - Active Insulin (Data Points For it are there It is just a matter of syncing them with the global timer.)
+  - Calorie King API (Will be used to Populate food Drop down in new delivery form)
+  - Daily BG Average
+  - Daily Insulin Total Average
 
-# Setup A New Project Without This Template
-
-If you want to start a project without using this template directory do the
-following:
-
-
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+## Uploaded To Heroku
